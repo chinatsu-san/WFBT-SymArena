@@ -24,3 +24,6 @@ Notes:
 * **Full-day book rebuild.** Rebuilding the book for all symbols over a full day runs at about 13.8 M msg/s of compute on this laptop. The order table (128 MB) is much larger than the L3 cache, so the rebuild is bound by DRAM latency. Several published single-core rebuilds are faster.
 * **IPC tail.** Under WSL2, the IPC p99.99 round trip is about 6.8 us. That tail comes from the host, not the ring, and is no better than other queues measured on the same machine.
 * **Hardware and data.** All figures are from one laptop and one trading day (Nasdaq 2019-01-30). The test suite uses synthetic data only. Nasdaq publishes sample ITCH files at https://emi.nasdaq.com/ITCH/.
+
+## Some number corrections
+*  sustained 50.0M/s open-loop without saturating, holding 56.6 ns p99 and 1821 ns p99.9 at 30M/s, there is still scope for optimization as this was run on WSL2, which makes p99.9+ inaccurate and the engine is much comfortably sitting at worse 114ns and 234.5 for p99.9 and p99.99 on WSL2 (engine mentioned harness).
